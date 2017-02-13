@@ -1,5 +1,6 @@
 //Andrea Eibergen
 //February 7, 2017
+//Internet Access Map
 
 //GOAL: Proportional symbols representing attribute values of mapped features
 //STEPS:
