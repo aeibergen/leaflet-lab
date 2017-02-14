@@ -1,6 +1,6 @@
 //Andrea Eibergen
 //February 7, 2017
-//Internet Access Map
+//Internet Use Map
 
 //GOAL: Proportional symbols representing attribute values of mapped features
 //STEPS:
@@ -14,13 +14,15 @@ function createMap(){
         zoom: 2
     });
 
-    //add Open Street Maps base tilelayer
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    }).addTo(map);
+    //add Open Street Maps base tilelaye.addTo(map)r
+     L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(map);
 
-    //call getData function
-    getData(map);
+     //call getData function
+     getData(map);
 };
 
 //calculate the radius of each proportional symbol
@@ -45,9 +47,10 @@ function pointToLayer(feature, latlng, attributes){
 
     //create marker options
     var options = {
-        fillColor: "#ff7800",
+        fillColor: "#09bbf2",
+        //used #ff7800 before (orange)
         color: "#000",
-        weight: 1,
+        weight: .5,
         opacity: 1,
         fillOpacity: 0.8
     };
@@ -111,10 +114,9 @@ function getData(map){
 
 //GOAL: Allow the user to sequence through the attributes and resymbolize the map 
 //   according to each attribute
-//STEPS:
-//1. Create slider widget
+
 //Step 1: Create new sequence controls
-function createSequenceControls(map){
+function createSequenceControls(map, attributes){
     //create range input element (slider)
       $('#mydiv').append('<input class="range-slider" type="range">');
 
@@ -127,16 +129,15 @@ function createSequenceControls(map){
         if ($(this).attr('id') == 'forward'){
             index++;
             //Step 7: if past the last attribute, wrap around to first attribute
-            index = index > 24 ? 0 : index;
+            index = index > 25 ? 0 : index;
         } else if ($(this).attr('id') == 'reverse'){
             index--;
             //Step 7: if past the first attribute, wrap around to last attribute
-            index = index < 0 ? 24 : index;
+            index = index < 0 ? 25 : index;
         };
 
         //Step 8: update slider
         $('.range-slider').val(index);
-        console.log(index);
         //Step 9: pass new attribute to update symbols
         updatePropSymbols(map, attributes[index]);
     });
@@ -144,18 +145,18 @@ function createSequenceControls(map){
     $('.range-slider').on('input', function(){
         //Step 6: get the new index value
         var index = $(this).val();
+        //Step 9: pass new attribute to update symbols
+        updatePropSymbols(map, attributes[index]);
         console.log(index);
     });
 
     //set slider attributes
     $('.range-slider').attr({
-        max: 24,
+        max: 25,
         min: 0,
         value: 0,
         step: 1
     });
-    //Step 9: pass new attribute to update symbols
-    updatePropSymbols(map, attributes[index]);
 };
 
 //add skip buttons
@@ -203,7 +204,7 @@ function processData(data){
 //Step 10: Resize proportional symbols according to new attribute values
 function updatePropSymbols(map, attribute){
     map.eachLayer(function(layer){
-       if (layer.feature && layer.feature.properties[attribute]){
+       if (layer.feature ){
             //access feature properties
             var props = layer.feature.properties;
 
