@@ -79,7 +79,11 @@ function pointToLayer(feature, latlng, attributes){
     var popupContent = "<p><b>Country:</b> " + feature.properties.Country + "</p>";
 
     //add formatted attribute to popup content string
-    var year = attribute.split("_")[1];
+    //for loop to cut off unneccesary information [within brackets]
+    for (i=0; i<=25; i++) {
+        var year = attribute.replace(/ *\[[^)]*\] */g, "");
+    }
+    //creates string in popup to tell the user what they are looking at
     popupContent += "<p><b>Internet Users in " + year + ":</b> " + feature.properties[attribute] + " %</p>";
 
     //bind the popup to the circle marker
@@ -163,6 +167,11 @@ function createSequenceControls(map, attributes){
     $('#mydiv').append('<button class="skip" id="reverse">Reverse</button>');
     $('#mydiv').append('<button class="skip" id="forward">Skip</button>');
 
+    // //commented out until I can correctly format the images(25*25 px)
+    // //replace button content with images
+    // $('#reverse').html('<img src="img/reverse.png">');
+    // $('#forward').html('<img src="img/forward.png">');
+
 //Import GeoJSON data
 function getData(map){
     //load the data
@@ -189,7 +198,7 @@ function processData(data){
 
     //push each attribute name into attributes array
     for (var attribute in properties){
-        //only take attributes with population values
+        //only take attributes with internet use values
         if (attribute.indexOf("YR") > -1){
             attributes.push(attribute);
         };
@@ -207,7 +216,6 @@ function updatePropSymbols(map, attribute){
        if (layer.feature ){
             //access feature properties
             var props = layer.feature.properties;
-
             //update each feature's radius based on new attribute values
             var radius = calcPropRadius(props[attribute]);
             layer.setRadius(radius);
@@ -216,7 +224,11 @@ function updatePropSymbols(map, attribute){
             var popupContent = "<p><b>Country:</b> " + props.Country + "</p>";
 
             //add formatted attribute to mydiv content string
-            var year = attribute.split("_")[1];
+            //for loop to cut off unneccesary information [within brackets]
+            for (i=0; i<=25; i++) {
+                var year = attribute.replace(/ *\[[^)]*\] */g, "");
+            }
+            //creates string to tell user which data they are looking at
             popupContent += "<p><b>Internet Users in " + year + ":</b> " + props[attribute] + " %</p>";
 
             //replace the layer popup
