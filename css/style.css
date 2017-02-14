@@ -1,7 +1,22 @@
 /*Andrea Eibergen*/
 
 #mapid {
-	height: 500px;
+	height: 600px;
 	width: 1350px;
 }
 
+.range-slider {
+    width: 50%;
+}
+
+#forward {
+    float: right;
+}
+
+#reverse {
+    float: left;
+}
+
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+}
