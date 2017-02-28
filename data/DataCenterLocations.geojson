@@ -1,0 +1,549 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Berkley County, South Carolina",
+        "desc": "Berkeley",
+        "precision": "county/district",
+        "Location": "Berkley County, South Carolina",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.9513321,
+          33.1976318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Council Bluffs, Iowa",
+        "desc": "Council Bluffs, IA",
+        "precision": "city/town",
+        "Location": "Council Bluffs, Iowa",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.8512115,
+          41.2577515
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Douglas County, Georgia",
+        "desc": "Douglas",
+        "precision": "county/district",
+        "Location": "Douglas County, Georgia",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.7678223,
+          33.70084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jackson County, Alabama",
+        "desc": "Jackson",
+        "precision": "county/district",
+        "Location": "Jackson County, Alabama",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.9992905,
+          34.7794304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lenoir, North Carolina",
+        "desc": "Lenoir, NC",
+        "precision": "city/town",
+        "Location": "Lenoir, North Carolina",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.5400925,
+          35.915329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mayes County, Oklahoma",
+        "desc": "Mayes",
+        "precision": "county/district",
+        "Location": "Mayes County, Oklahoma",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.2308807,
+          36.3018112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Montgomery County, Tennessee",
+        "desc": "Montgomery",
+        "precision": "county/district",
+        "Location": "Montgomery County, Tennessee",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.3829269,
+          36.4968796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pryor Creek, Oklahoma",
+        "desc": "Pryor, OK",
+        "precision": "city/town",
+        "Location": "Pryor Creek, Oklahoma",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.3137817,
+          36.3069611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Dalles, Oregon",
+        "desc": "The Dalles, OR",
+        "precision": "city/town",
+        "Location": "The Dalles, Oregon",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.1834335,
+          45.6015511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Quilicura, Chile",
+        "desc": "Quilicura, Chile",
+        "precision": "city/town",
+        "Location": "Quilicura, Chile",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.7350998,
+          -33.3515015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Saint-Ghislain,�Belgium",
+        "desc": "Saint-Ghislain, Belgium",
+        "precision": "city/town",
+        "Location": "Saint-Ghislain,�Belgium�",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.81304,
+          50.4432983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hamina, Finland",
+        "desc": "Hamina, Finland",
+        "precision": "city/town",
+        "Location": "Hamina, Finland",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.2311993,
+          60.5620995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dublin, Ireland",
+        "desc": "Dublin, Ireland",
+        "precision": "city/town",
+        "Location": "Dublin, Ireland",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.2488899,
+          53.3330994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eemshaven, Netherlands",
+        "desc": "Eemshaven, Netherlands",
+        "precision": "city/town",
+        "Location": "Eemshaven, Netherlands",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.81599,
+          53.4427986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jurong West, Singapore",
+        "desc": "Jurong West, Singapore",
+        "precision": "Neighborhood",
+        "Location": "Jurong West, Singapore",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7278671,
+          1.34993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Changhua County, Taiwan",
+        "desc": "Changhua County",
+        "precision": "county/district",
+        "Location": "Changhua County, Taiwan",
+        "Company": "Google"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.5416565,
+          24.0848408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Quincy, Washington",
+        "desc": "Quincy, WA",
+        "precision": "city/town",
+        "Location": "Quincy, Washington",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.8533783,
+          47.2374802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "San Antonio, Texas",
+        "desc": "San Antonio, TX",
+        "precision": "city/town",
+        "Location": "San Antonio, Texas",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.4946136,
+          29.4245796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chicago, Illinois",
+        "desc": "Chicago, IL",
+        "precision": "city/town",
+        "Location": "Chicago, Illinois",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.6324463,
+          41.8842506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amsterdam, Netherlands",
+        "desc": "Amsterdam, Netherlands",
+        "precision": "city/town",
+        "Location": "Amsterdam, Netherlands",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.86654,
+          52.3306999
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dublin, Ireland",
+        "desc": "Dublin, Ireland",
+        "precision": "city/town",
+        "Location": "Dublin, Ireland",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.2488899,
+          53.3330994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hong Kong, China",
+        "desc": "Hong Kong SAR",
+        "precision": "country",
+        "Location": "Hong Kong, China",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          114.1869659,
+          22.3361568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Osaka, Japan",
+        "desc": "Osaka, Japan",
+        "precision": "city/town",
+        "Location": "Osaka, Japan",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5129089,
+          34.6775208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Saitama, Japan",
+        "desc": "Saitama, Japan",
+        "precision": "city/town",
+        "Location": "Saitama, Japan",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.6446075,
+          35.8659134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Victoria, Australia",
+        "desc": "Victoria",
+        "precision": "state/province",
+        "Location": "Victoria, Australia",
+        "Company": "Microsoft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.3103638,
+          -36.8642502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Prineville, Oregon",
+        "desc": "Prineville, OR",
+        "precision": "city/town",
+        "Location": "Prineville, Oregon",
+        "Company": "Facebook"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.8440399,
+          44.3029213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Altoona, Iowa",
+        "desc": "Altoona, IA",
+        "precision": "city/town",
+        "Location": "Altoona, Iowa",
+        "Company": "Facebook"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.4588013,
+          41.6440582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Forest City, North Carolina",
+        "desc": "Forest City, NC",
+        "precision": "city/town",
+        "Location": "Forest City, North Carolina",
+        "Company": "Facebook"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.8647385,
+          35.3337593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lule�, Sweden",
+        "desc": "Lule�, Sweden",
+        "precision": "city/town",
+        "Location": "Lule�, Sweden",
+        "Company": "Facebook"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.1574001,
+          65.5858002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Quincy, Washington",
+        "desc": "Quincy, WA",
+        "precision": "city/town",
+        "Location": "Quincy, Washington",
+        "Company": "Yahoo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.8533783,
+          47.2374802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Omaha, Nebraska",
+        "desc": "Omaha, NE",
+        "precision": "city/town",
+        "Location": "Omaha, Nebraska",
+        "Company": "Yahoo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.9405899,
+          41.2606888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Lockport, New York",
+        "desc": "Lockport, NY",
+        "precision": "city/town",
+        "Location": "Lockport, New York",
+        "Company": "Yahoo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.6953735,
+          43.1691895
+        ]
+      }
+    }
+  ]
+}

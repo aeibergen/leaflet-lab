@@ -11,10 +11,11 @@ function createMap(){
     //create the map
     var map = L.map('mapid', {
         center: [20, 0],
-        zoom: 2
+        zoom: 2,
+        layers: [google, microsoft, facebook, yahoo]
     });
 
-    //add Open Street Maps base tilelaye.addTo(map)r
+    //add Open Street Maps base tilelayer.addTo(map)r
      L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     subdomains: 'abcd',
@@ -23,6 +24,9 @@ function createMap(){
 
      //call getData function
      getData(map);
+
+     //add overlay layers
+     L.control.layers(null, overlayMaps).addTo(map);
 };
 
 //calculate the radius of each proportional symbol
@@ -237,6 +241,67 @@ function updatePropSymbols(map, attribute){
             });
         };
     });
+};
+
+//fifth operator
+
+//numerous data center locations to add to map from google
+var BerkleyCounty = L.marker([33.1976318, -79.9513321]);
+    CouncilBluffs = L.marker([41.2577515, -95.8512115]);
+    DouglasCounty = L.marker([33.70084, -84.7678223]);
+    JacksonCounty = L.marker([34.7794304, -85.9992905]);
+    Lenoir = L.marker([35.915329, -81.5400925]);
+    MayesCounty = L.marker([36.3018112, -95.2308807]);
+    MontgomeryCounty = L.marker([36.4968796, -87.3829269]);
+    PryorCreek = L.marker([36.3069611, -95.3137817]);
+    TheDalles = L.marker([45.6015511, -121.1834335]);
+    Quilicura = L.marker([-33.3515015, -70.7350998]);
+    SaintGhislain = L.marker([50.4432983, 3.81304]);
+    Hamina = L.marker([60.5620995, 27.2311993]);
+    Dublin = L.marker([53.3330994, -6.2488899]);
+    Eemshaven = L.marker([53.4427986, 6.81599]);
+    JurongWest = L.marker([1.3499, 103.7278671]);
+    ChanghuaCouty = L.marker([24.0848408, 120.5416565]);
+
+//combines markers into one layer
+var google = L.layerGroup([BerkleyCounty, CouncilBluffs, DouglasCounty, JacksonCounty, Lenoir, MayesCounty, MontgomeryCounty, PryorCreek, TheDalles, Quilicura, SaintGhislain, Hamina, Dublin, Eemshaven, JurongWest, ChanghuaCouty]);
+
+//numerous data center locations to add to map from microsoft
+var Quincy = L.marker([47.2374802, -119.8533783]);
+    SanAntonio = L.marker([29.4245796, -98.4946136]);
+    Chicago = L.marker([41.8842506, -87.6324463]);
+    Amsterdam = L.marker([52.3306999, 4.86654]);
+    Dublin = L.marker([53.3330994, -6.2488899]);
+    HongKong = L.marker([22.3361568, 114.1869659]);
+    Osaka = L.marker([34.6775208, 135.5129089]);
+    Saitama = L.marker([35.8659134, 139.6446075]);
+    Victoria = L.marker([-36.8642502, 144.3103638]);
+
+//combines markers into one layer
+var microsoft = L.layerGroup([Quincy, SanAntonio, Chicago, Amsterdam, Dublin, HongKong, Osaka, Saitama, Victoria]);
+
+//numerous data center locations to add to map from facebook
+var Prineville = L.marker([44.3029213, -120.8440399]);
+    Altoona = L.marker([41.6440582, -93.4588013]);
+    ForestCity = L.marker([35.3337593, -81.8647385]);
+    Luleå = L.marker([65.5858002, 22.1574001]);
+
+//combines markers into one layer
+var facebook = L.layerGroup([Prineville, Altoona, ForestCity, Luleå]);
+
+//numerous data center locations to add to map from yahoo
+var Quincy = L.marker([47.2374802, -119.8533783]);
+    Omaha = L.marker([41.2606888, -95.9405899]);
+    Lockport = L.marker([43.1691895, -78.6953735]);
+
+//combines markers into one layer
+var yahoo = L.layerGroup([Quincy, Omaha, Lockport]);
+
+var overlayMaps = {
+    "Google": google,
+    "Microsoft": microsoft,
+    "Facebook": facebook,
+    "Yahoo": yahoo
 };
 
 $(document).ready(createMap);
