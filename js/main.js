@@ -1,6 +1,7 @@
 //Andrea Eibergen
 //February 7, 2017
 //Internet Use Map
+//all icons from icons8.com
 
 //GOAL: Proportional symbols representing attribute values of mapped features
 //STEPS:
@@ -171,10 +172,10 @@ function createSequenceControls(map, attributes){
     $('#mydiv').append('<button class="skip" id="reverse">Reverse</button>');
     $('#mydiv').append('<button class="skip" id="forward">Skip</button>');
 
-    // //commented out until I can correctly format the images(25*25 px)
-    // //replace button content with images
-    // $('#reverse').html('<img src="img/reverse.png">');
-    // $('#forward').html('<img src="img/forward.png">');
+    //commented out until I can correctly format the images(25*25 px)
+    //replace button content with images
+    $('#reverse').html('<img src="img/rewind.png" width="25px"">');
+    $('#forward').html('<img src="img/forward.png" width="25px"">');
 
 //Import GeoJSON data
 function getData(map){
@@ -245,63 +246,75 @@ function updatePropSymbols(map, attribute){
 
 //fifth operator
 
+//creating differnet icon colors for different data center owners
+var ColorIcon = L.Icon.extend({
+    options: {
+        iconSize: [20, 20],
+    }
+});
+
+var redIcon = new ColorIcon({iconUrl: "img/redMarker.png"}),
+    purpleIcon = new ColorIcon({iconUrl: "img/purpleMarker.png"}),
+    orangeIcon = new ColorIcon({iconUrl: "img/orangeMarker.png"}),
+    greenIcon = new ColorIcon({iconUrl: "img/greenMarker.png"});
+
 //numerous data center locations to add to map from google
-var BerkleyCounty = L.marker([33.1976318, -79.9513321]);
-    CouncilBluffs = L.marker([41.2577515, -95.8512115]);
-    DouglasCounty = L.marker([33.70084, -84.7678223]);
-    JacksonCounty = L.marker([34.7794304, -85.9992905]);
-    Lenoir = L.marker([35.915329, -81.5400925]);
-    MayesCounty = L.marker([36.3018112, -95.2308807]);
-    MontgomeryCounty = L.marker([36.4968796, -87.3829269]);
-    PryorCreek = L.marker([36.3069611, -95.3137817]);
-    TheDalles = L.marker([45.6015511, -121.1834335]);
-    Quilicura = L.marker([-33.3515015, -70.7350998]);
-    SaintGhislain = L.marker([50.4432983, 3.81304]);
-    Hamina = L.marker([60.5620995, 27.2311993]);
-    Dublin = L.marker([53.3330994, -6.2488899]);
-    Eemshaven = L.marker([53.4427986, 6.81599]);
-    JurongWest = L.marker([1.3499, 103.7278671]);
-    ChanghuaCouty = L.marker([24.0848408, 120.5416565]);
+var BerkleyCounty = L.marker([33.1976318, -79.9513321], {icon: redIcon});
+    CouncilBluffs = L.marker([41.2577515, -95.8512115], {icon: redIcon});
+    DouglasCounty = L.marker([33.70084, -84.7678223], {icon: redIcon});
+    JacksonCounty = L.marker([34.7794304, -85.9992905], {icon: redIcon});
+    Lenoir = L.marker([35.915329, -81.5400925], {icon: redIcon});
+    MayesCounty = L.marker([36.3018112, -95.2308807], {icon: redIcon});
+    MontgomeryCounty = L.marker([36.4968796, -87.3829269], {icon: redIcon});
+    PryorCreek = L.marker([36.3069611, -95.3137817], {icon: redIcon});
+    TheDalles = L.marker([45.6015511, -121.1834335], {icon: redIcon});
+    Quilicura = L.marker([-33.3515015, -70.7350998], {icon: redIcon});
+    SaintGhislain = L.marker([50.4432983, 3.81304], {icon: redIcon});
+    Hamina = L.marker([60.5620995, 27.2311993], {icon: redIcon});
+    Dublin = L.marker([53.3330994, -6.2488899], {icon: redIcon});
+    Eemshaven = L.marker([53.4427986, 6.81599], {icon: redIcon});
+    JurongWest = L.marker([1.3499, 103.7278671], {icon: redIcon});
+    ChanghuaCouty = L.marker([24.0848408, 120.5416565], {icon: redIcon});
 
 //combines markers into one layer
 var google = L.layerGroup([BerkleyCounty, CouncilBluffs, DouglasCounty, JacksonCounty, Lenoir, MayesCounty, MontgomeryCounty, PryorCreek, TheDalles, Quilicura, SaintGhislain, Hamina, Dublin, Eemshaven, JurongWest, ChanghuaCouty]);
 
 //numerous data center locations to add to map from microsoft
-var Quincy = L.marker([47.2374802, -119.8533783]);
-    SanAntonio = L.marker([29.4245796, -98.4946136]);
-    Chicago = L.marker([41.8842506, -87.6324463]);
-    Amsterdam = L.marker([52.3306999, 4.86654]);
-    Dublin = L.marker([53.3330994, -6.2488899]);
-    HongKong = L.marker([22.3361568, 114.1869659]);
-    Osaka = L.marker([34.6775208, 135.5129089]);
-    Saitama = L.marker([35.8659134, 139.6446075]);
-    Victoria = L.marker([-36.8642502, 144.3103638]);
+var Quincy = L.marker([47.2374802, -119.8533783], {icon: orangeIcon});
+    SanAntonio = L.marker([29.4245796, -98.4946136], {icon: orangeIcon});
+    Chicago = L.marker([41.8842506, -87.6324463], {icon: orangeIcon});
+    Amsterdam = L.marker([52.3306999, 4.86654], {icon: orangeIcon});
+    Dublin = L.marker([53.3330994, -6.2488899], {icon: orangeIcon});
+    HongKong = L.marker([22.3361568, 114.1869659], {icon: orangeIcon});
+    Osaka = L.marker([34.6775208, 135.5129089], {icon: orangeIcon});
+    Saitama = L.marker([35.8659134, 139.6446075], {icon: orangeIcon});
+    Victoria = L.marker([-36.8642502, 144.3103638], {icon: orangeIcon});
 
 //combines markers into one layer
 var microsoft = L.layerGroup([Quincy, SanAntonio, Chicago, Amsterdam, Dublin, HongKong, Osaka, Saitama, Victoria]);
 
 //numerous data center locations to add to map from facebook
-var Prineville = L.marker([44.3029213, -120.8440399]);
-    Altoona = L.marker([41.6440582, -93.4588013]);
-    ForestCity = L.marker([35.3337593, -81.8647385]);
-    Luleå = L.marker([65.5858002, 22.1574001]);
+var Prineville = L.marker([44.3029213, -120.8440399], {icon: greenIcon});
+    Altoona = L.marker([41.6440582, -93.4588013], {icon: greenIcon});
+    ForestCity = L.marker([35.3337593, -81.8647385], {icon: greenIcon});
+    Luleå = L.marker([65.5858002, 22.1574001], {icon: greenIcon});
 
 //combines markers into one layer
 var facebook = L.layerGroup([Prineville, Altoona, ForestCity, Luleå]);
 
 //numerous data center locations to add to map from yahoo
-var Quincy = L.marker([47.2374802, -119.8533783]);
-    Omaha = L.marker([41.2606888, -95.9405899]);
-    Lockport = L.marker([43.1691895, -78.6953735]);
+var Quincy = L.marker([47.2374802, -119.8533783], {icon: purpleIcon});
+    Omaha = L.marker([41.2606888, -95.9405899], {icon: purpleIcon});
+    Lockport = L.marker([43.1691895, -78.6953735], {icon: purpleIcon});
 
 //combines markers into one layer
 var yahoo = L.layerGroup([Quincy, Omaha, Lockport]);
 
 var overlayMaps = {
-    "Google": google,
-    "Microsoft": microsoft,
-    "Facebook": facebook,
-    "Yahoo": yahoo
+    "Google (red)": google,
+    "Microsoft (orange)": microsoft,
+    "Facebook (green)": facebook,
+    "Yahoo (purple)": yahoo
 };
 
 $(document).ready(createMap);
