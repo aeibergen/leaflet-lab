@@ -20,3 +20,14 @@
 .leaflet-popup-content p {
     margin: 0.2em 0;
 }
+
+h1 {
+	text-align: center;
+	line-height: .5;
+	font-family: Verdana, sans-serif;
+}
+
+body {
+	background-color: #caccce;
+}
+/*#222426*/

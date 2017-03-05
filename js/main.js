@@ -30,6 +30,22 @@ function createMap(){
      L.control.layers(null, overlayMaps).addTo(map);
 };
 
+function createPopup(properties, attribute, layer, radius){
+    //add city to popup content string
+    var popupContent = "<p><b>Country:</b> " + properties.Country + "</p>";
+
+    //add formatted attribute to panel content string
+    for (i=0; i<=25; i++) {
+        var year = attribute.replace(/ *\[[^)]*\] */g, "");
+    }
+    popupContent += "<p><b>Internet Users in " + year + ":</b> " + properties[attribute] + " %</p>";
+
+    //replace the layer popup
+    layer.bindPopup(popupContent, {
+        offset: new L.Point(0,-radius)
+    });
+};
+
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //scale factor to adjust symbol size evenly
@@ -66,9 +82,9 @@ function pointToLayer(feature, latlng, attributes){
     //6. Give each feature's circle marker a radius based on its attribute value
     options.radius = calcPropRadius(attValue);
 
-    //create circle marker layer
-    var layer = L.circleMarker(latlng, options);
-    layer.bindPopup(popupContent);
+    // //create circle marker layer
+     var layer = L.circleMarker(latlng, options);
+    // layer.bindPopup(popupContent);
 
     //event listeners to open popup on hover
     layer.on({
@@ -81,20 +97,7 @@ function pointToLayer(feature, latlng, attributes){
     });
 
     //build popup content string starting with country
-    var popupContent = "<p><b>Country:</b> " + feature.properties.Country + "</p>";
-
-    //add formatted attribute to popup content string
-    //for loop to cut off unneccesary information [within brackets]
-    for (i=0; i<=25; i++) {
-        var year = attribute.replace(/ *\[[^)]*\] */g, "");
-    }
-    //creates string in popup to tell the user what they are looking at
-    popupContent += "<p><b>Internet Users in " + year + ":</b> " + feature.properties[attribute] + " %</p>";
-
-    //bind the popup to the circle marker
-    layer.bindPopup(popupContent);
-
-    //return the circle marker to the L.geoJson pointToLayer option
+    createPopup(feature.properties, attribute, layer, options.radius);
     return layer;
 };
 
@@ -226,20 +229,8 @@ function updatePropSymbols(map, attribute){
             layer.setRadius(radius);
 
             //add country to popup content string
-            var popupContent = "<p><b>Country:</b> " + props.Country + "</p>";
-
-            //add formatted attribute to mydiv content string
-            //for loop to cut off unneccesary information [within brackets]
-            for (i=0; i<=25; i++) {
-                var year = attribute.replace(/ *\[[^)]*\] */g, "");
-            }
-            //creates string to tell user which data they are looking at
-            popupContent += "<p><b>Internet Users in " + year + ":</b> " + props[attribute] + " %</p>";
-
-            //replace the layer popup
-            layer.bindPopup(popupContent, {
-                offset: new L.Point(0,-radius)
-            });
+            createPopup(props, attribute, layer, radius);
+            // var popupContent = "<p><b>Country:</b> " + props.Country + "</p>";
         };
     });
 };
