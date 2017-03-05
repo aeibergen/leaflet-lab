@@ -13,7 +13,6 @@ function createMap(){
     var map = L.map('mapid', {
         center: [20, 0],
         zoom: 2,
-        layers: [google, microsoft, facebook, yahoo]
     });
 
     //add Open Street Maps base tilelayer.addTo(map)r
@@ -127,58 +126,99 @@ function getData(map){
 //GOAL: Allow the user to sequence through the attributes and resymbolize the map 
 //   according to each attribute
 
-//Step 1: Create new sequence controls
+//create new sequence control
 function createSequenceControls(map, attributes){
-    //create range input element (slider)
-      $('#mydiv').append('<input class="range-slider" type="range">');
-
-    //Step 5: click listener for buttons
-   $('.skip').click(function(){
-        //get the old index value
-        var index = $('.range-slider').val();
-
-        //Step 6: increment or decrement depending on button clicked
-        if ($(this).attr('id') == 'forward'){
-            index++;
-            //Step 7: if past the last attribute, wrap around to first attribute
-            index = index > 25 ? 0 : index;
-        } else if ($(this).attr('id') == 'reverse'){
-            index--;
-            //Step 7: if past the first attribute, wrap around to last attribute
-            index = index < 0 ? 25 : index;
-        };
-
-        //Step 8: update slider
-        $('.range-slider').val(index);
-        //Step 9: pass new attribute to update symbols
-        updatePropSymbols(map, attributes[index]);
+    var SequenceControl=L.Control.extend({
+        options:{
+            position:"bottomleft"
+        },
+        
+        onAdd:function(map){
+            //create the control container div with a a particular class name
+            var container=L.DomUtil.create("div","sequence-control-container");
+            
+            //create range input element (slider)
+            $(container).append('<input class="range-slider" type="range">');
+            
+            //add skip buttons
+            $(container).append('<button class="skip" id="reverse" title="Reverse">Reverse</button>');
+            $(container).append('<button class="skip" id="forward" title="Forward">Skip</button>');
+            
+            //kill any mouse event listeners on the map
+            $(container).on('mousedown dblclick',function(e){
+                L.DomEvent.stopPropagation(e);
+            });
+            return container;
+        }
     });
-    //Step 5: input listener for slider
-    $('.range-slider').on('input', function(){
-        //Step 6: get the new index value
-        var index = $(this).val();
-        //Step 9: pass new attribute to update symbols
-        updatePropSymbols(map, attributes[index]);
-        console.log(index);
-    });
+    map.addControl(new SequenceControl());
 
     //set slider attributes
-    $('.range-slider').attr({
-        max: 25,
-        min: 0,
-        value: 0,
-        step: 1
+    $(".range-slider").attr({
+        max:14,
+        min:0,
+        value:0,
+        step:1
+    });
+
+    // //replace button contents with images
+    // $("#reverse").html("<img src='img/rewind.png'>");
+    // $("#forward").html("<img src='img/forward.png'>");
+    
+    //click listener for buttons
+    $(".skip").click(function(){
+        //get the old index value
+        var index=$(".range-slider").val();
+        
+        //increment or decrement depending on the button clicked
+        if ($(this).attr("id")=="forward"){
+            index++;
+            //if past the last attribute, wrap around to the first attribute
+            index= index > 14 ? 0 : index;
+        } else if ($(this).attr("id")=="reverse"){
+            index--;
+            //if past the first attribute, wrap around to the last attribute
+            index= index < 0 ? 14 : index;
+        };
+        
+        //update slider
+        $(".range-slider").val(index);
+        
+        //pass new attribute to update symbols
+        updatePropSymbols(map,attributes[index]);
+    });
+    
+    //input listener for slider
+    $(".range-slider").on("input",function(){
+        //get the new index value
+        var index=$(this).val();
+        
+        //pass new attribute to update symbols
+        updatePropSymbols(map,attributes[index]);
     });
 };
 
-//add skip buttons
-    $('#mydiv').append('<button class="skip" id="reverse">Reverse</button>');
-    $('#mydiv').append('<button class="skip" id="forward">Skip</button>');
+//create temporal legend
+function createLegend(map, attributes){
+    var LegendControl = L.Control.extend({
+        options: {
+            position: 'bottomright'
+        },
 
-    //commented out until I can correctly format the images(25*25 px)
-    //replace button content with images
-    $('#reverse').html('<img src="img/rewind.png" width="25px"">');
-    $('#forward').html('<img src="img/forward.png" width="25px"">');
+        onAdd: function (map) {
+            // create the control container with a particular class name
+            var container = L.DomUtil.create('div', 'legend-control-container');
+
+            //Create Temporal Legend
+            $(container).append("<p><b>Percent of Population Using Internet in <span id=legendYear>"+attributes[0]+"</span></b></p>");
+
+            return container;
+        }
+    });
+    //do legend symbols here
+
+    map.addControl(new LegendControl());
+};
 
 //Import GeoJSON data
 function getData(map){
@@ -302,10 +342,10 @@ var Quincy = L.marker([47.2374802, -119.8533783], {icon: purpleIcon});
 var yahoo = L.layerGroup([Quincy, Omaha, Lockport]);
 
 var overlayMaps = {
-    "Google (red)": google,
-    "Microsoft (orange)": microsoft,
-    "Facebook (green)": facebook,
-    "Yahoo (purple)": yahoo
+    "Google Data Centers (red)": google,
+    "Microsoft Data Centers (orange)": microsoft,
+    "Facebook Data Centers (green)": facebook,
+    "Yahoo Data Centers (purple)": yahoo
 };
 
 $(document).ready(createMap);
