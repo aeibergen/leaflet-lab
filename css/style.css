@@ -24,7 +24,7 @@
 .sequence-control-container {
     width: 350px;
     height: 30px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: #c2c4c6;
     padding: 10px;
     line-height: 45px;
     text-align: center;
@@ -33,7 +33,7 @@
 
 .legend-control-container {
     width: 140px;
-    background-color: rgba(255,255,255,0.8);
+    background-color: #c2c4c6;
     padding: 10px;
     line-height: 45px;
     text-align: center;
@@ -43,6 +43,10 @@
 
 .range-slider {
     width: 200px;
+}
+
+.skip {
+	background-color: #fff;
 }
 
 h1 {
