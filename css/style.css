@@ -52,18 +52,37 @@
 h1 {
 	text-align: center;
 	line-height: .5;
-	font-family: 'Droid Serif', Georgia, Times, serif;
+	font-family: 'Orbitron', sans-serif;
 	color: #06a9db;
+    letter-spacing: 1px;
 }
 
 h2 {
 	text-align:center;
-	line-height:.5;
-	font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+	line-height: 1;
+	font-family: 'Orbitron', sans-serif;
 	font-size: 14px;
-	color: #484b4f;
+	color: #06a9db;
+    letter-spacing: 1px;
+}
+
+p {
+    text-align:center;
+    line-height: .25;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4;
+    color: #06a9db;
+    letter-spacing: .5;
 }
 
 body {
-	background: url(img/creampaper.png) repeat 0 0;
+	background: #35383d;
+}
+
+.leaflet-control {
+    border-radius: 6px;
+}
+
+.skip {
+    border-radius: 6px;
 }
